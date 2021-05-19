@@ -11,9 +11,16 @@ public class Developer {
 	private int numHolidays;
 	private int countNumHolidays;
 
+	/**
+	 * Builder with employee id and vacation number
+	 * 
+	 * @param name
+	 */
 	public Developer(String name) {
 		this.name = name;
+		// every time an employee is created, his id is added to one
 		idEmployees = countIdEmployees++;
+		// assign vacation days
 		numHolidays = NUMMAXHOLYDAIS;
 	}
 
@@ -69,14 +76,19 @@ public class Developer {
 
 	/**
 	 * @param numHolidays
-	 *            the numHolidays to set
+	 *            discount days
 	 */
 	public void discountHolidays(int countDays) {
+		// if the data entered is less than or equal to the maximum vacation days
 		if (countDays <= NUMMAXHOLYDAIS)
+			// if the number of vacations is greater than zero and the days entered are less than or equal to the vacation days
 			if (this.numHolidays > 0 && countDays <= numHolidays) {
+				// the days of vacation are subtracted minus the days entered
 				countNumHolidays = numHolidays - countDays;
+				// are assigned to vacation days
 				this.numHolidays = countNumHolidays;
 			} else {
+				// Error message
 				System.out.println("You can discount more days than you have");
 			}
 
